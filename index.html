@@ -79,9 +79,19 @@
 	   }
 	   .opaaa{
 			opacity: 0;
+			position: relative;
+			cursor: context-menu  !important;
 		}
-
-
+/*  .opaaa:before{
+  	position: absolute;
+  	left: 0px;
+  	top: 0px;
+  	width: 100%;
+  	height: 100%;
+  	background: red;
+  	content: ''
+  }
+*/
 		.incorect{
 			position: absolute;
 			left: 50%;
@@ -135,8 +145,10 @@
          
 
         var barbarsityva='გარაჟი'
-
+    
         $('.barbarizm').text(barbarsityva);
+
+  
 
 		var sityva ='ავტოფარეხი';
 
@@ -149,10 +161,11 @@
 		 for (i = 0; i < sityva.length; i++) {
 		 	sityvaarr[sityvaarr.length]=sityva[i]
 		 }
-		 console.log(sityvaarr)
+		 // console.log(sityvaarr)
+
 		// var sityva ='როლანდი';
 		var anban='აბგდევზთიკლმნოპჟრსტუფქღყშჩცძწჭხჰ';
-		console.log(anban.length);
+		// console.log(anban.length);
 
 
 
@@ -204,25 +217,33 @@ var storipasuxi='';
 
 $('.asoebi span').each(function(){
       $(this).click(function(){
-      	
+      	 console.log('aoebismtvleli')
       	   // console.log(sityva[0].length)
       	   // console.log($(this).text().trim().length)
       	   var asooo=$(this).text()
-      	   if($(this).text().trim() == sityva[aoebismtvleli]){
+      	   if($(this).text().trim() == sityva[aoebismtvleli] && !($(this).hasClass('opaaa')) ){
       	   	storipasuxi+=$(this).text();
                    $(this).addClass('opaaa')
       	   	     document.getElementsByID
                  $('.arabarbarizm span:nth-child('+(aoebismtvleli+1)+')').append("<span> "+ $(this).text().trim()+" </span>")
-                 console.log('true');
+                 // console.log('true');
                   aoebismtvleli++;
-                  if(aoebismtvleli==sityva.length){
-                     
 
+
+                  if(aoebismtvleli==sityva.length){
+                    
+                setTimeout(function(){
+                	alert(barbarsityva)
+
+                },1000)
 
                          
                          
                   }
 
+      	   }
+      	   else if($(this).hasClass('opaaa')){
+                  
       	   }
       	   else{
       	   	 $('.incorect').css('animation-name','incorectl');
